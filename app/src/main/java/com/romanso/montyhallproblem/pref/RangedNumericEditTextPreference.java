@@ -46,7 +46,13 @@ public final class RangedNumericEditTextPreference extends EditTextPreference {
                     Toast.LENGTH_SHORT).show();
             Log.i(TAG,"Wrong amount of doors was chosen: " + doorsAmount);
 
-            editText.setText(Integer.toString(mMinValue));
+            if (doorsAmount > mMaxValue) {
+                editText.setText(Integer.toString(mMaxValue));
+                Log.i(TAG, "Doors amount set to " + mMaxValue);
+            } else {
+                editText.setText(Integer.toString(mMinValue));
+                Log.i(TAG, "Doors amount set to " + mMinValue);
+            }
         }
     }
 
