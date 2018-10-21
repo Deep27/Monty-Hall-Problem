@@ -1,4 +1,4 @@
-package com.romanso.montyhallproblem.montyhallproblem
+package com.romanso.montyhallproblem
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

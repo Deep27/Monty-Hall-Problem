@@ -1,4 +1,4 @@
-package com.romanso.montyhallproblem.montyhallproblem
+package com.romanso.montyhallproblem
 
 import org.junit.Test
 

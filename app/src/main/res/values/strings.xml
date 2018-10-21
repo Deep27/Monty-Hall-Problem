@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Monty Hall problem</string>
+    <string name="doors_amount">Doors amount</string>
+    <string name="preferences">Preferences</string>
 </resources>

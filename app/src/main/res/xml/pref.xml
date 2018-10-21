@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:preference="http://schemas.android.com/apk/res-auto">
+    <com.romanso.montyhallproblem.pref.RangedNumericEditTextPreference
+        android:key="key_doors_amount"
+        android:summary="Minimum: @integer/minDoorsAmount, maximum: @integer/maxMaxDoorsAmount"
+        android:title="Doors amount"
+        android:inputType="number"
+        android:defaultValue="3"
+        preference:minValue="@integer/minDoorsAmount"
+        preference:maxValue="@integer/maxDoorsAmount">
+    </com.romanso.montyhallproblem.pref.RangedNumericEditTextPreference>
+</PreferenceScreen>
