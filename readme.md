@@ -5,4 +5,4 @@ The **Monty Hall problem** is a brain teaser, in the form of a probability puzzl
 
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Monty_open_door.svg/180px-Monty_open_door.svg.png)
 
-### Try it with 3 or more doors and see the actual results and probability of getting a car depending on your choice.
+### Try it with 3 or more doors and see the actual results.
