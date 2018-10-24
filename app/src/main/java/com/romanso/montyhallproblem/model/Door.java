@@ -1,24 +1,34 @@
 package com.romanso.montyhallproblem.model;
 
-public class Door {
+public final class Door {
 
-    private int mId;
-    private boolean mOpened;
+    private final int mId;
+    private boolean mHasPrize;
 
     public Door(int id) {
         mId = id;
-        mOpened = false;
+        mHasPrize = false;
+    }
+
+    @Override
+    public int hashCode() {
+        return mId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return (obj instanceof Door) && ((Door) obj).mId == mId;
     }
 
     public int getId() {
         return mId;
     }
 
-    public boolean isOpened() {
-        return mOpened;
+    public boolean hasPrize() {
+        return mHasPrize;
     }
 
-    public void setOpened(boolean mOpened) {
-        this.mOpened = mOpened;
+    public void setHasPrize(boolean hasPrize) {
+        mHasPrize = hasPrize;
     }
 }

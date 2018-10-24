@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Monty Hall problem</string>
-    <string name="doors_amount">Doors amount</string>
+    <string name="changed_choices">Changed choices:&#160;</string>
+    <string name="door_chosen">Door chosen:&#160;</string>
+    <string name="doors_amount">Doors amount:&#160;</string>
+    <string name="game_number">Game number:&#160;</string>
+    <string name="lost_games">Lost games:&#160;</string>
+    <string name="new_game">New game</string>
+    <string name="new_round">New round</string>
     <string name="preferences">Preferences</string>
+    <string name="read_info">Read info in options menu if you don\'t know, what the hell is going on here.</string>
+    <string name="round_number">Round number:&#160;</string>
+    <string name="won_games">Won games:&#160;</string>
 </resources>
