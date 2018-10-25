@@ -1,4 +1,4 @@
-package com.romanso.montyhallproblem;
+package com.romanso.montyhallproblem.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.romanso.montyhallproblem.adapters.DoorClickListener;
 import com.romanso.montyhallproblem.adapters.DoorsAdapter;
@@ -42,6 +41,7 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
     private TextView mTvChangedChoices;
     private TextView mTvWinRate;
     private TextView mTvLoseRate;
+    private TextView mTvInfo;
 
     private Button mNewGameBtn;
     private Button mNewRoundBtn;
@@ -51,8 +51,10 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mSp = PreferenceManager.getDefaultSharedPreferences(this);
+
         mNewGameBtn = findViewById(R.id.btnNewGame);
-        mNewGameBtn.setOnClickListener((v) -> Toast.makeText(this, "New game", Toast.LENGTH_SHORT).show());
+        mNewGameBtn.setOnClickListener((v) -> startNewGame(getDoorsAmountInt()));
 
         mNewRoundBtn = findViewById(R.id.btnNewRound);
         mNewRoundBtn.setOnClickListener((v) -> startNewRound());
@@ -62,9 +64,9 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
         mTvChangedChoices = findViewById(R.id.tvChangedChoices);
         mTvWinRate = findViewById(R.id.tvWinRate);
         mTvLoseRate = findViewById(R.id.tvLoseRate);
+        mTvInfo = findViewById(R.id.tvInfo);
 
         mTvDoorsAmount = findViewById(R.id.tvDoorsAmount);
-        mSp = PreferenceManager.getDefaultSharedPreferences(this);
 
         mDoorsAdapter = new DoorsAdapter(this, this);
 
@@ -91,8 +93,10 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem mi = menu.add(0, 1, 0, "Preferences");
-        mi.setIntent(new Intent(this, PrefActivity.class));
+        MenuItem mi1 = menu.add(0, 1, 0, getString(R.string.preferences));
+        mi1.setIntent(new Intent(this, PrefActivity.class));
+        MenuItem mi2 = menu.add(0, 2, 0, getString(R.string.info));
+        mi2.setIntent(new Intent(this, InfoActivity.class));
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -101,11 +105,17 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
         mGame = new Game(doorsAmount);
         mTvRoundN.setText(Integer.toString(mGame.getTotalRounds()));
         mDoorsAdapter.setRound(mGame.getRound());
+        mTvChangedChoices.setText("0");
+        mTvWinRate.setText("0");
+        mTvLoseRate.setText("0");
+        mTvDoorChosen.setText("-");
+        mTvInfo.setText(getString(R.string.which_door_has_a_prize));
     }
 
     private void startNewRound() {
         updateStats(mGame.newRound());
         mDoorsAdapter.setRound(mGame.getRound());
+        mTvInfo.setText(getString(R.string.which_door_has_a_prize));
     }
 
     private int getDoorsAmountInt() {
@@ -124,10 +134,11 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
             startNewRound();
         } else {
             mTvDoorChosen.setText(Integer.toString(g.getRound().getChosenDoorId()));
+            mTvInfo.setText(getString(R.string.choose_again));
         }
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     private void updateStats(boolean newRound) {
 
         mTvDoorChosen.setText("-");
@@ -143,8 +154,8 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
         double winRate = (double) wonGames / totalRounds * 100;
         double loseRate = (double) lostGames / totalRounds * 100;
 
-        mTvWinRate.setText(wonGames + " (" + round(winRate, 3) + "%)");
-        mTvLoseRate.setText(lostGames + " (" + round(loseRate, 3) + "%)");
+        mTvWinRate.setText(String.format("%d (%.3f)", wonGames, round(winRate, 3)));
+        mTvLoseRate.setText(String.format("%d (%.3f)", lostGames, round(loseRate, 3)));
 
         mTvRoundN.setText(Integer.toString(mGame.getTotalRounds()));
         mTvChangedChoices.setText(Integer.toString(mGame.getChangedChoices()));

@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">Monty Hall problem</string>
     <string name="changed_choices">Changed choices:&#160;</string>
+    <string name="choose_again">All doors were closed, except the one you\'ve chosen and another one.\nWill you do the same choice or change your opinion?</string>
     <string name="door_chosen">Door chosen:&#160;</string>
     <string name="doors_amount">Doors amount:&#160;</string>
+    <string name="full_info">Suppose you\'re on a game show, and you\'re given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No.1, and the host, who knows what\'s behind the doors, opens another door, say No.3, which has a goat. He then says to you, \"Do you want to pick door No.2?\" Is it to your advantage to switch your choice?</string>
     <string name="game_number">Game number:&#160;</string>
+    <string name="info">Info</string>
     <string name="lost_games">Lost games:&#160;</string>
     <string name="new_game">New game</string>
     <string name="new_round">New round</string>
@@ -11,4 +14,7 @@
     <string name="read_info">Read info in options menu if you don\'t know, what the hell is going on here.</string>
     <string name="round_number">Round number:&#160;</string>
     <string name="won_games">Won games:&#160;</string>
+    <string name="which_door_has_a_prize">Which door has a prize?</string>
+    <string name="you_lost">You lost!</string>
+    <string name="you_won">You won!</string>
 </resources>

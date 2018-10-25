@@ -8,6 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/read_info"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/llInfo"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,6 +113,17 @@
                 android:text="0 (0.00%)"/>
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/which_door_has_a_prize"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/llInfo"
+        app:layout_constraintBottom_toTopOf="@id/rvDoors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvDoors"
