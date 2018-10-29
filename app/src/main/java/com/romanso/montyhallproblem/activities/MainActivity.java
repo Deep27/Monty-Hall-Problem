@@ -21,9 +21,7 @@ import com.romanso.montyhallproblem.game.Game;
 import com.romanso.montyhallproblem.game.Round;
 import com.romanso.montyhallproblem.montyhallproblem.R;
 import com.romanso.montyhallproblem.pref.PrefActivity;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import com.romanso.montyhallproblem.util.Util;
 
 public final class MainActivity extends AppCompatActivity implements DoorClickListener {
 
@@ -154,18 +152,10 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
         double winRate = (double) wonGames / totalRounds * 100;
         double loseRate = (double) lostGames / totalRounds * 100;
 
-        mTvWinRate.setText(String.format("%d (%.3f)", wonGames, round(winRate, 3)));
-        mTvLoseRate.setText(String.format("%d (%.3f)", lostGames, round(loseRate, 3)));
+        mTvWinRate.setText(String.format("%d (%.3f)", wonGames, Util.round(winRate, 3)));
+        mTvLoseRate.setText(String.format("%d (%.3f)", lostGames, Util.round(loseRate, 3)));
 
         mTvRoundN.setText(Integer.toString(mGame.getTotalRounds()));
         mTvChangedChoices.setText(Integer.toString(mGame.getChangedChoices()));
-    }
-
-    private double round(double d, int digits) {
-        if (digits < 0) throw new IllegalArgumentException();
-
-        BigDecimal bd = new BigDecimal(d);
-        bd = bd.setScale(digits, RoundingMode.HALF_UP);
-        return bd.doubleValue();
     }
 }

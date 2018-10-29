@@ -7,6 +7,7 @@ import com.romanso.montyhallproblem.model.Door;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public final class Round {
 
@@ -53,8 +54,16 @@ public final class Round {
         return mChangedChoice;
     }
 
-    public List<Door> getDoors() {
-        return mDoors;
+    public Stream<Door> getDoors() {
+        return mDoors.stream();
+    }
+
+    public Door getDoor(int i) {
+        return mDoors.get(i);
+    }
+
+    public int getDoorsAmount() {
+        return mDoors.size();
     }
 
     public Game getGame() {
@@ -103,9 +112,7 @@ public final class Round {
     private void removeExcessDoors() {
         mDoors.removeIf(door -> door.getId() != mAnotherDoor && door.getId() != mChosenDoorId);
         StringBuilder doorsLeft = new StringBuilder();
-        for (Door d : mDoors) {
-            doorsLeft.append(d.getId()).append(", ");
-        }
+        mDoors.forEach(d -> doorsLeft.append(d.getId()).append(", "));
         Log.i(TAG, "Removed all doors except 2: " + doorsLeft.toString());
     }
 }

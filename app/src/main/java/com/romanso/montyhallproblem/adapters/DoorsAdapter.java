@@ -38,14 +38,14 @@ public final class DoorsAdapter extends RecyclerView.Adapter<DoorsAdapter.DoorsV
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull DoorsViewHolder doorViewHolder, int i) {
-        Door door = mRound.getDoors().get(i);
+        Door door = mRound.getDoor(i);
         Button btn = doorViewHolder.getBtn();
         btn.setText(Integer.toString(door.getId()));
     }
 
     @Override
     public int getItemCount() {
-        return mRound.getDoors().size();
+        return mRound.getDoorsAmount();
     }
 
     public void setRound(Round r) {

@@ -1,7 +1,10 @@
 package com.romanso.montyhallproblem.pref;
 
+import android.content.SharedPreferences;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 
 import com.romanso.montyhallproblem.montyhallproblem.R;
