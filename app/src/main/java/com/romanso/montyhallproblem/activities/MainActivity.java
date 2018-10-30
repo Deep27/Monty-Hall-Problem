@@ -91,11 +91,24 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem mi1 = menu.add(0, 1, 0, getString(R.string.preferences));
-        mi1.setIntent(new Intent(this, PrefActivity.class));
-        MenuItem mi2 = menu.add(0, 2, 1, getString(R.string.info));
-        mi2.setIntent(new Intent(this, InfoActivity.class));
+        getMenuInflater().inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.mi_preferences:
+                startActivity(new Intent(this, PrefActivity.class));
+                break;
+            case R.id.mi_info:
+                startActivity(new Intent(this, InfoActivity.class));
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @SuppressLint("SetTextI18n")
