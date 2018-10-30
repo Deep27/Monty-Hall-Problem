@@ -93,7 +93,7 @@ public final class MainActivity extends AppCompatActivity implements DoorClickLi
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuItem mi1 = menu.add(0, 1, 0, getString(R.string.preferences));
         mi1.setIntent(new Intent(this, PrefActivity.class));
-        MenuItem mi2 = menu.add(0, 2, 0, getString(R.string.info));
+        MenuItem mi2 = menu.add(0, 2, 1, getString(R.string.info));
         mi2.setIntent(new Intent(this, InfoActivity.class));
         return super.onCreateOptionsMenu(menu);
     }
